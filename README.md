@@ -93,6 +93,7 @@ Factors of 15: 3 and 5
 ## Results / Resultados
 
 In the experiment, the simulator gets 5 and 3, while the QPU has some errors.
+
 ---
 
 ## ✨ Acknowledgment / Agradecimientos
