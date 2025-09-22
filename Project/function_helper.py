@@ -2,6 +2,20 @@ from qiskit import QuantumCircuit
 import numpy as np
 import random
 import math
+from typing import Any, Callable
+import time
+
+def timer(func) -> Callable:
+    def wrapper(*args, **kwargs) -> Any:
+        start: float = time.time()
+        result: Any = func(*args, **kwargs)
+        end: float = time.time()
+        print(f"Ran '{func.__name__!r} in {(end - start)*1000:.2f} miliseconds'")
+
+        return result
+    
+    return wrapper
+
 
 
 def QFT(n):
@@ -35,7 +49,7 @@ def c_amod15(a, power):
 
 # Encuentra n valores máximos
 
-
+@timer
 def find_n_max_value(list: list, n: int) -> list:
     temp_list = list.copy()
     output_list = []
@@ -46,7 +60,7 @@ def find_n_max_value(list: list, n: int) -> list:
 
 # Encuentra los valores mínimos
 
-
+@timer
 def find_n_min_value(list: list, n: int) -> list:
     temp_list = list.copy()
     output_list = []
@@ -57,7 +71,7 @@ def find_n_min_value(list: list, n: int) -> list:
 
 # Verifica si es un número primo
 
-
+@timer
 def ver_prime(n: int) -> bool:
     is_prime = True
     if n >= 2:
@@ -76,6 +90,7 @@ def ver_prime(n: int) -> bool:
 
 
 # Genera un número primo random
+@timer
 def generate_prime(min, max) -> int:
     prime = random.randint(min, max)
     while not ver_prime(prime):
@@ -84,7 +99,7 @@ def generate_prime(min, max) -> int:
 
 
 if __name__ == '__main__':
-    prime = generate_prime(1, 100)
+    prime = generate_prime(1, 10000)
     print(f'This is your prime number: {prime}')
     list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     print(find_n_max_value(list, 4))
