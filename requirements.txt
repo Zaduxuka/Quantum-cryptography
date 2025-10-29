@@ -1,0 +1,10 @@
+qiskit
+qiskit-aer
+qiskit-ibm-runtime
+numpy
+matplotlib
+pandas
+scipy
+joblib
+notebook
+nbformat
