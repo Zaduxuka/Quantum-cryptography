@@ -20,7 +20,7 @@ Con [Qiskit](https://qiskit.org/), se implementa una **simulación del algoritmo
 - `LICENSE` — licencia MIT.
 - `CITATION.cff` — metadatos para citación.
 - `requirements.txt` — dependencias.
-- `Proyecto\` — el cºodigo junto a los datos
+- `Proyecto\` — el código junto a los datos
 
 ---
 
