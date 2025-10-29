@@ -1,6 +1,36 @@
-# 🔐 Criptografía y Computación Cuántica: Algoritmo de Shor con Qiskit
+
+# Quantum-cryptography
+
+**Repositorio para el proyecto / informe:** "Criptografía cuántica: El algoritmo de Shor y su impacto en la actualidad".  
+Autor: **Zihao Xu** .  
+URL: https://github.com/Zaduxuka/Quantum-cryptography
 
 ---
+
+## Resumen
+Implementación y experimentos con el **algoritmo de Shor** usando Qiskit. Incluye notebooks reproducibles, scripts y el informe asociado en `docs/`.
+
+---
+
+## Estructura del repositorio
+- `README.md` — este fichero.
+- `LICENSE` — licencia MIT.
+- `CITATION.cff` — metadatos para citación.
+- `requirements.txt` — dependencias.
+- `src/` — módulos Python.
+- `data/` — resultados.
+- `docs/` — informe en PDF y documentación adicional.
+
+---
+
+## Dependencias e instalación
+1. Crear entorno (recomendado):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate      # Linux/macOS
+   venv\Scripts\activate         # Windows
+   pip install --upgrade pip
+   pip install -r requirements.txt
 
 ## 📌 Description / Descripción
 
@@ -14,87 +44,6 @@ Este proyecto explora la relación entre la **criptografía clásica (RSA)** y l
 
 Con [Qiskit](https://qiskit.org/), se implementa una **simulación del algoritmo de Shor** para factorizar números pequeños (como 15 o 21), con el objetivo de comprender cómo la computación cuántica puede poner en riesgo la seguridad digital actual.
 
----
-
-## 📖 Contents / Contenido
-
-- 🔑 RSA Algorithm / El algoritmo RSA
-- 📉 Shor’s algorithm / El algoritmo de Shor
-- 📊 Results of the algorithm with 15/ Resultados del algoritmo con 15
-
----
-
-## ⚡ Requirements / Requisitos
-
-**Conda environment** is recommended / **Se recomienda** utilizar la herramienta de Conda
-A IBM cloud account is also needed if you want to run in the QPU / Se necesitará una cuenta de IBM cloud si se quiere correr en los QPU
-
-```bash
-python 3.9+
-pip install qiskit
-pip install qiskit_aer
-pip install qiskit_ibm_runtime
-pip install matplotlib
-pip install pandas
-```
-
----
-
-## 🧩 Example Usage / Ejemplo de uso
-
-**Python code (classic Shor's algorithm):**
-
-```python
-import random
-from math import gcd
-
-def find_period(a, N):
-    for r in range(1, N):
-        if pow(a, r, N) == 1:
-            return r
-    return None
-
-def shor_simulation(N):
-    a = random.randint(2, N - 1)
-    print(f"Using a = {a}")
-
-    if gcd(a, N) != 1:
-        return [gcd(a, N), N // gcd(a, N)]
-
-    r = find_period(a, N)
-    if r is None or r % 2 != 0:
-        return None
-
-    x = pow(a, r // 2, N)
-    if x == 1 or x == N - 1:
-        return None
-
-    factor1 = gcd(x - 1, N)
-    factor2 = gcd(x + 1, N)
-    return factor1, factor2
-
-N = 15
-result = shor_simulation(N)
-if result:
-    print(f"Factors of {N}: {result[0]} and {result[1]}")
-else:
-    print("No valid factors found in this run.")
-```
-
-**Expected output:**
-
-```
-Using a = 2
-Factors of 15: 3 and 5
-```
-
----
-
-## Results / Resultados
-
-In the experiment, the simulator gets 5 and 3, while the QPU has some errors.
-
----
 
 ## ✨ Acknowledgment / Agradecimientos
 
