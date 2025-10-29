@@ -1,7 +1,7 @@
 
 # Quantum-cryptography
 
-**Repositorio para el proyecto / informe:** "Criptografía cuántica: El algoritmo de Shor y su impacto en la actualidad".  
+**Repositorio para el proyecto** "Criptografía cuántica: El algoritmo de Shor y su impacto en la actualidad".  
 Autor: **Zihao Xu** 
 URL: https://github.com/Zaduxuka/Quantum-cryptography
 
